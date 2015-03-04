@@ -6,7 +6,7 @@ $('.button').on('click',function(){
         type: "GET",
         success: function (response) {
             console.log(response);
-            $('div').html("the response is "+response.key.data)
+            $('div').html("the response is "+response)
         },
         error: function (xhr, status) {
             console.log("error");
