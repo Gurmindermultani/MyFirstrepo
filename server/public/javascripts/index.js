@@ -5,11 +5,11 @@ $('.button').on('click',function(){
         url: "/pnr",
         type: "GET",
         success: function (response) {
-            console.log(response);
             //console.log(typeof response);
-            //var data= JSON.parse(response);
+            var data= JSON.parse(response);
             //console.log(data);
-            $('div').html("the response is "+response)
+            $('div').html("the response is "+data)
+            console.log(data);
         },
         error: function (xhr, status) {
             console.log("error");
