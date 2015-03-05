@@ -23,20 +23,18 @@ router.get('/pnr', function(req, res, next) {
 	// => "json"
 	req.accepts('application/json');
 	var response = res;
-	http.get("http://api.erail.in/live/?key=c488acb9-4f22-4f77-97b6-7b90835d7494&trainno=12138&stnfrom=NDLS&date=03-FEB-2015", function(res) {
+	http.get("http://api.erail.in/route/?key=c488acb9-4f22-4f77-97b6-7b90835d7494&trainno=12451", function(res) {
 		  console.log("Got response: " + res.statusCode);
 		   res.on("data", function(chunk) {
-		   	 var data= JSON.parse(chunk);
-			     response.send(data)
+		   		console.log(req.query.iam);
+			     response.send(chunk);
 			});
 		  next()
 		}).on('error', function(e) {
 		  console.log("Got error: " + e.message);
 		});
-
 },function(req, res, next){
 	console.log("next method");
 
 });
-
 module.exports = router;
